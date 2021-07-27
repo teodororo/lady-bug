@@ -1,0 +1,43 @@
+version: '3'
+
+networks:
+    rede:
+      external:
+        name: ladybug_network 
+
+services:
+    # gateway-api:
+    #   image: gateway-api
+    #   container_name: gateway-api
+    #   build:
+    #     context: .
+    #     dockerfile: Dockerfile
+    #   volumes:
+    #     - './src:/app/src'
+    #   ports:
+    #     - 8000:8000
+    #   environment:
+    #     - container=1
+    #   env_file:
+    #     - .env
+    #   networks:
+    #     - rede
+    #   depends_on:
+    #     - mongodb
+
+    mongodb:
+      image: mongo
+      container_name: database
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: ladybug_root
+        MONGO_INITDB_ROOT_PASSWORD: 123ladybug
+        MONGO_INITDB_DATABASE: admin
+      volumes:
+        - ./create_user.js:/docker-entrypoint-initdb.d/mongo-init-dev.js:ro
+        - "./mongodb:/data/db"
+      ports:
+        - 27017:27017
+      restart: always
+      networks:
+        - rede
+

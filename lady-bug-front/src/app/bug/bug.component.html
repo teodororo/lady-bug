@@ -1,0 +1,54 @@
+<div style="padding: 48px;">
+    <h2>Cadastro de Bug</h2>
+
+    <div class="row">
+        <form class="col s12" [formGroup]="bugForm">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">border_color</i>
+                    <input 
+                    id="icon_prefix" 
+                    type="text" 
+                    class="validate" 
+                    id="testSuitename" 
+                    formControlName="testSuitename"
+                    >
+                    <label for="testSuitename">Teste Suite Id</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">border_color</i>
+                    <input id="testesCases" type="tel" 
+                    class="validate" 
+                    id="testesCases" 
+                    formControlName="testesCases">
+                    <label for="testesCases">Teste Case</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">feedback</i>
+                    <textarea id="textarea2" 
+                    class="materialize-textarea" 
+                    data-length="120" id="observations"
+                        formControlName="observations"></textarea>
+                    <label for="observations">Observations</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">airline_seat_flat_angled
+                        </i>
+                    <input id="developer" type="tel" 
+                    class="validate" 
+                    id="developer" 
+                    formControlName="developer">
+                    <label for="developer">Developer</label>
+                </div>
+            </div>
+
+
+            <button (click)="createBug()" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+
+        </form>
+    </div>
+</div>

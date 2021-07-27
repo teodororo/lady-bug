@@ -1,0 +1,11 @@
+sanic==20.12.3
+sanic-motor==0.4.0
+dnspython==2.0.0
+asyncua==0.9.14
+pymongo==3.11.2
+secure==0.2.1
+Sanic-Cors==0.10.0.post3
+sanic-amqp==0.2.0
+python-dotenv==0.15.0
+sanic-ext-base==0.1.0
+Sanic-Plugins-Framework==0.9.4.post1

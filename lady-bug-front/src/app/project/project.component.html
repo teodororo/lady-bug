@@ -1,0 +1,137 @@
+<div style="padding: 48px;">
+    <h2 *ngIf="projectName == ''">Nome do Projeto</h2>
+    <h2 *ngIf="projectName != ''"> {{ projectName }} </h2>
+
+    <div class="row">
+        <form class="col s12" [formGroup]="projectForm">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">border_color</i>
+                    <input 
+                    id="icon_prefix" 
+                    type="text" 
+                    class="validate" 
+                    id="name" 
+                    formControlName="name"
+                    (keyup)="setProjectName($event)"
+                    >
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">face</i>
+                    <input id="icon_telephone" type="tel" class="validate" id="client" formControlName="client">
+                    <label for="client">Client</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">feedback</i>
+                    <textarea id="textarea2" class="materialize-textarea" data-length="120" id="description"
+                        formControlName="description"></textarea>
+                    <label for="description">Description</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">group_add</i>
+                    <input id="email" type="email" class="validate" [value]="member" (keyup)="onKey($event)">
+                    <label for="email">Email</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Quantidade de Membros: {{ member }}<span
+                            class="new badge">{{qtdMember}}</span></span>
+                </div>
+                <a class="btn-floating btn-large waves-effect waves-light red" (click)="addMember()">
+                    <i class="material-icons">add</i>
+                </a>
+
+            </div>
+
+
+            <br>
+            <h4>Test Suite</h4>
+            <br>
+
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">border_color</i>
+                    <input 
+                    id="icon_prefix" 
+                    type="text" 
+                    class="validate" 
+                    id="testSuitename" 
+                    formControlName="testSuitename"
+                    >
+                    <label for="testSuitename">Teste Suite Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">directions_run</i>
+                    <textarea id="textarea2" 
+                    class="materialize-textarea" 
+                    data-length="120" 
+                    id="testSuiteSteps"
+                    formControlName="testSuiteSteps"></textarea>
+                    <label for="testSuiteSteps">Steps</label>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">feedback</i>
+                        <input 
+                        id="testSuiteDescription" 
+                        type="text" 
+                        class="validate" 
+                        id="testSuiteDescription" 
+                        formControlName="testSuiteDescription"
+                        >
+                        <label for="testSuiteDescription">Description</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">description</i>
+                        <input  
+                        type="text" 
+                        class="validate" 
+                        id="testSuiteInportance" 
+                        formControlName="testSuiteInportance"
+                        >
+                        <label for="testSuiteInportance">Nível de Importância</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">device_hub</i>
+                            <textarea id="textarea2" class="materialize-textarea" data-length="120" id="testSuitePreConditions"
+                                formControlName="testSuitePreConditions"></textarea>
+                            <label for="testSuitePreConditions">Pre-Conditions</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">dns</i>
+                            <input id="testesCases" class="validate" [value]="test" (keyup)="onTest($event)">
+                            <label for="testesCases">Test Case</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Quantidade de Casos de Teste: {{ test }}<span
+                                    class="new badge">{{qtdTest}}</span></span>
+                        </div>
+                        <a class="btn-floating btn-large waves-effect waves-light red" (click)="addTestCase()">
+                            <i class="material-icons">add</i>
+                        </a>
+        
+                    </div>
+        
+
+
+            </div>
+
+
+
+            <button (click)="createProject()" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+
+        </form>
+    </div>
+</div>
